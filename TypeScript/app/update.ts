@@ -1,4 +1,4 @@
-import { Item } from "./gilded-rose";
+import { Item } from "./types/item";
 
 const MAX_QUALITY = 50;
 const MIN_QUALITY = 0;
