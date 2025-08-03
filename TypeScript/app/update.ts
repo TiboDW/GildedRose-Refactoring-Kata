@@ -3,12 +3,16 @@ import { Item } from "./types/item";
 const MAX_QUALITY = 50;
 const MIN_QUALITY = 0;
 
+const decreaseSellIn = (item: Item) => {
+  item.sellIn--;
+};
+
 export const updateItemBrie = (item: Item) => {
   if (item.quality < MAX_QUALITY) {
     item.quality++;
   }
 
-  item.sellIn--;
+  decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY && item.quality < MAX_QUALITY) {
     item.quality++;
@@ -27,7 +31,7 @@ export const updateItemPass = (item: Item) => {
     }
   }
 
-  item.sellIn--;
+  decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY) {
     item.quality = 0;
@@ -46,7 +50,7 @@ export const updateItemConjured = (item: Item) => {
     }
   }
 
-  item.sellIn--;
+  decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY && item.quality > MIN_QUALITY) {
     item.quality -= 2;
@@ -61,7 +65,7 @@ export const updateItem = (item: Item) => {
     item.quality--;
   }
 
-  item.sellIn--;
+  decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY && item.quality > MIN_QUALITY) {
     item.quality--;
