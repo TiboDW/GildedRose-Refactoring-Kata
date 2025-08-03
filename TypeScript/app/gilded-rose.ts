@@ -32,6 +32,24 @@ export class GildedRose {
 
   updateQuality() {
     for (const item of this.items) {
+      switch (item.name) {
+        case ItemTypes.AGED_BRIE:
+          updateItemBrie(item);
+          continue;
+        case ItemTypes.BACKSTAGE_PASS:
+          updateItemPass(item);
+          continue;
+        case ItemTypes.SULFURAS:
+          updateItemSulfuras(item);
+          continue;
+        case ItemTypes.CONJURED:
+          updateItemConjured(item);
+          continue;
+        default:
+          updateItem(item);
+          break;
+      }
+
       if (
         item.name != "Aged Brie" &&
         item.name != "Backstage passes to a TAFKAL80ETC concert"
