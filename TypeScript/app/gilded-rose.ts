@@ -1,3 +1,4 @@
+import { ItemType } from "./types/itemType";
 import {
   updateItem,
   updateItemBrie,
@@ -18,13 +19,6 @@ export class Item {
   }
 }
 
-const ItemTypes = {
-  AGED_BRIE: "Aged Brie",
-  BACKSTAGE_PASS: "Backstage passes to a TAFKAL80ETC concert",
-  SULFURAS: "Sulfuras, Hand of Ragnaros",
-  CONJURED: "Conjured",
-};
-
 export class GildedRose {
   items: Array<Item>;
 
@@ -35,16 +29,16 @@ export class GildedRose {
   updateQuality() {
     for (const item of this.items) {
       switch (item.name) {
-        case ItemTypes.AGED_BRIE:
+        case ItemType.AGED_BRIE:
           updateItemBrie(item);
           break;
-        case ItemTypes.BACKSTAGE_PASS:
+        case ItemType.BACKSTAGE_PASS:
           updateItemPass(item);
           break;
-        case ItemTypes.SULFURAS:
+        case ItemType.SULFURAS:
           updateItemSulfuras(item);
           break;
-        case ItemTypes.CONJURED:
+        case ItemType.CONJURED:
           updateItemConjured(item);
           break;
         default:
