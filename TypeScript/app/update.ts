@@ -3,6 +3,8 @@ import { Item } from "./types/item";
 const MAX_QUALITY = 50;
 const MIN_QUALITY = 0;
 
+const QUALITY_SULFURAS = 80;
+
 const decreaseSellIn = (item: Item) => {
   item.sellIn--;
 };
@@ -39,7 +41,7 @@ export const updateItemPass = (item: Item) => {
 };
 
 export const updateItemSulfuras = (item: Item) => {
-  item.quality = 80;
+  item.quality = QUALITY_SULFURAS;
 };
 
 export const updateItemConjured = (item: Item) => {
