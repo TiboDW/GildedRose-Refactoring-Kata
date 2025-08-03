@@ -17,7 +17,17 @@ const ItemTypes = {
   CONJURED: "Conjured",
 };
 
-const updateItemBrie = (item: Item) => {};
+const updateItemBrie = (item: Item) => {
+  if (item.quality < 50) {
+    item.quality = item.quality + 1;
+  }
+
+  item.sellIn = item.sellIn - 1;
+
+  if (item.sellIn < 0 && item.quality < 50) {
+    item.quality = item.quality + 1;
+  }
+};
 const updateItemPass = (item: Item) => {};
 const updateItemSulfuras = (item: Item) => {};
 const updateItemConjured = (item: Item) => {};
@@ -35,16 +45,16 @@ export class GildedRose {
       switch (item.name) {
         case ItemTypes.AGED_BRIE:
           updateItemBrie(item);
-          continue;
+          break;
         case ItemTypes.BACKSTAGE_PASS:
           updateItemPass(item);
-          continue;
+          break;
         case ItemTypes.SULFURAS:
           updateItemSulfuras(item);
-          continue;
+          break;
         case ItemTypes.CONJURED:
           updateItemConjured(item);
-          continue;
+          break;
         default:
           updateItem(item);
           break;
