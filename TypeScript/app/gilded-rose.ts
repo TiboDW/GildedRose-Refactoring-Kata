@@ -10,6 +10,12 @@ export class Item {
   }
 }
 
+const updateItemBrie = (item: Item) => {};
+const updateItemPass = (item: Item) => {};
+const updateItemSulfuras = (item: Item) => {};
+const updateItemConjured = (item: Item) => {};
+const updateItem = (item: Item) => {};
+
 export class GildedRose {
   items: Array<Item>;
 
