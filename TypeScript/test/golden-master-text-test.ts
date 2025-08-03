@@ -1,5 +1,5 @@
 import { GildedRose } from "../app/gilded-rose";
-import { Item } from "../app/types/item";
+import { Item } from "../app/item";
 
 console.log("OMGHAI!");
 

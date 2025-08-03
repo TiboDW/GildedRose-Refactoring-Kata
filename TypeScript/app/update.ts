@@ -1,4 +1,4 @@
-import { Item } from "./types/item";
+import { Item } from "./item";
 
 const MAX_QUALITY = 50;
 const MIN_QUALITY = 0;
@@ -20,7 +20,7 @@ export const updateItemBrie = (item: Item) => {
 
   decreaseSellIn(item);
 
-  if (item.sellIn < MIN_QUALITY) {
+  if (item.sellIn < 0) {
     increaseQuality(item);
   }
 };
@@ -37,7 +37,7 @@ export const updateItemPass = (item: Item) => {
 
   decreaseSellIn(item);
 
-  if (item.sellIn < MIN_QUALITY) {
+  if (item.sellIn < 0) {
     item.quality = 0;
   }
 };
@@ -51,7 +51,7 @@ export const updateItemConjured = (item: Item) => {
 
   decreaseSellIn(item);
 
-  if (item.sellIn < MIN_QUALITY) {
+  if (item.sellIn < 0) {
     decreaseQuality(item, 2);
   }
 };
@@ -61,7 +61,7 @@ export const updateItem = (item: Item) => {
 
   decreaseSellIn(item);
 
-  if (item.sellIn < MIN_QUALITY) {
+  if (item.sellIn < 0) {
     decreaseQuality(item);
   }
 };

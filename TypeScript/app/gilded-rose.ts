@@ -1,4 +1,4 @@
-import { Item } from "./types/item";
+import { Item } from "./item";
 import { ItemType } from "./types/itemType";
 import {
   updateItem,
