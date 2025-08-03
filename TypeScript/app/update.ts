@@ -34,7 +34,9 @@ export const updateItemPass = (item: Item) => {
   }
 };
 
-export const updateItemSulfuras = (item: Item) => {};
+export const updateItemSulfuras = (item: Item) => {
+  item.quality = 80;
+};
 
 export const updateItemConjured = (item: Item) => {};
 
