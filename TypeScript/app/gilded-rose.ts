@@ -10,6 +10,13 @@ export class Item {
   }
 }
 
+const ItemTypes = {
+  AGED_BRIE: "Aged Brie",
+  BACKSTAGE_PASS: "Backstage passes to a TAFKAL80ETC concert",
+  SULFURAS: "Sulfuras, Hand of Ragnaros",
+  CONJURED: "Conjured",
+};
+
 const updateItemBrie = (item: Item) => {};
 const updateItemPass = (item: Item) => {};
 const updateItemSulfuras = (item: Item) => {};
