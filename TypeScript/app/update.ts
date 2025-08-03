@@ -5,31 +5,37 @@ const MIN_QUALITY = 0;
 
 const QUALITY_SULFURAS = 80;
 
-const decreaseSellIn = (item: Item) => {
-  item.sellIn--;
+const decreaseSellIn = (item: Item, amount: number = 1) => {
+  item.sellIn -= amount;
+};
+const increaseQuality = (item: Item, amount: number = 1) => {
+  item.quality += amount;
+};
+const decreaseQuality = (item: Item, amount: number = 1) => {
+  item.quality -= amount;
 };
 
 export const updateItemBrie = (item: Item) => {
   if (item.quality < MAX_QUALITY) {
-    item.quality++;
+    increaseQuality(item);
   }
 
   decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY && item.quality < MAX_QUALITY) {
-    item.quality++;
+    increaseQuality(item);
   }
 };
 
 export const updateItemPass = (item: Item) => {
   if (item.quality < MAX_QUALITY) {
-    item.quality++;
+    increaseQuality(item);
 
     if (item.sellIn < 11 && item.quality < MAX_QUALITY) {
-      item.quality++;
+      increaseQuality(item);
     }
     if (item.sellIn < 6 && item.quality < MAX_QUALITY) {
-      item.quality++;
+      increaseQuality(item);
     }
   }
 
@@ -46,7 +52,7 @@ export const updateItemSulfuras = (item: Item) => {
 
 export const updateItemConjured = (item: Item) => {
   if (item.quality > MIN_QUALITY) {
-    item.quality -= 2;
+    decreaseQuality(item, 2);
     if (item.quality < MIN_QUALITY) {
       item.quality = MIN_QUALITY;
     }
@@ -55,7 +61,7 @@ export const updateItemConjured = (item: Item) => {
   decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY && item.quality > MIN_QUALITY) {
-    item.quality -= 2;
+    decreaseQuality(item, 2);
     if (item.quality < MIN_QUALITY) {
       item.quality = MIN_QUALITY;
     }
@@ -64,12 +70,12 @@ export const updateItemConjured = (item: Item) => {
 
 export const updateItem = (item: Item) => {
   if (item.quality > MIN_QUALITY) {
-    item.quality--;
+    decreaseQuality(item);
   }
 
   decreaseSellIn(item);
 
   if (item.sellIn < MIN_QUALITY && item.quality > MIN_QUALITY) {
-    item.quality--;
+    decreaseQuality(item);
   }
 };
