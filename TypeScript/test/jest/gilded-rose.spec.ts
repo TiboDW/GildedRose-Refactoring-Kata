@@ -25,8 +25,8 @@ describe("Gilded Rose", () => {
     expect(items[0].sellIn).toBe(-2);
 
     items = gildedRose.updateQuality();
-    expect(items[0].quality).toBe(50);
-    expect(items[0].sellIn).toBe(4);
+    expect(items[0].quality).toBe(24);
+    expect(items[0].sellIn).toBe(-3);
   });
 
   it("should update quality for Conjured", () => {
